@@ -1,0 +1,220 @@
+.events {
+  padding: 35px 0 70px;
+
+  &__content {
+    @extend %flex-column;
+
+    align-items: center;
+    padding-bottom: 60px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 5%;
+    }
+
+    @include on-desktop {
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    font-family: $primary-font;
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 100%;
+    color: $main-text-color;
+    text-align: center;
+  }
+
+  &__img-wrapper {
+    overflow: hidden;
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      width: 50%;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      width: 60%;
+    }
+  }
+
+  &__img {
+    cursor: zoom-in;
+
+    display: block;
+
+    width: 100%;
+
+    object-fit: cover;
+
+    transition: transform $transition-duration ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__info {
+    @extend %flex-column;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+    @include on-desktop {
+      max-width: 370px;
+    }
+  }
+
+  &__info-text {
+    font-family: $secondary-font;
+    font-size: $font-size-md;
+    font-weight: 500;
+    line-height: 100%;
+    color: #687480;
+    text-transform: uppercase;
+  }
+
+  &__info-subtitle {
+    font-family: $secondary-font;
+    font-size: $font-size-md;
+    font-weight: 600;
+    line-height: 150%;
+    color: $primary-color;
+  }
+
+  &__info-date {
+    @extend%flex-center;
+
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  &__info-title {
+    position: relative;
+
+    margin-bottom: 10px;
+
+    font-family: $primary-font;
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 400;
+    line-height: 100%;
+    color: $main-text-color;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-35%);
+
+      display: inline-block;
+
+      width: 10px;
+      height: 10px;
+      margin-left: 10px;
+      border-radius: 0;
+
+      background-color: $active-color;
+
+      animation: shape-change 0.5s infinite alternate;
+    }
+  }
+
+  &__info-description {
+    font-family: $secondary-font;
+    font-size: $font-size-md;
+    font-weight: 400;
+    line-height: 150%;
+    color: $secondary-text-color;
+  }
+
+  .lecture {
+
+    @extend %background-cover;
+
+    position: relative;
+    width: 100%;
+    height: 210px;
+    background-image: url('../images/events/lecture.avif'),
+      url('../images/events/lecture.webp'), url('../images/events/lecture.jpg');
+
+    &__info {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 80%;
+      padding: 20px 0;
+      border-bottom: 2px solid #c5d5d2;
+
+      text-align: center;
+
+      background-color: $white;
+
+      @media screen and (min-width: 1024px) {
+        max-width: 570px;
+      }
+    }
+
+    &__info-date {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      max-width: 370px;
+      margin: 0 auto 20px;
+    }
+
+    &__info-text {
+      font-family: $secondary-font;
+      font-size: $font-size-md;
+      font-weight: 500;
+      line-height: 100%;
+      color: #687480;
+      text-transform: uppercase;
+    }
+
+    &__info-subtitle {
+      font-family: $secondary-font;
+      font-size: $font-size-md;
+      font-weight: 700;
+      line-height: 150%;
+      color: $primary-color;
+    }
+
+    &__info-title {
+      max-width: 370px;
+      margin: 0 auto;
+
+      font-family: $primary-font;
+      font-size: clamp(18px, 5vw, 36px);
+      font-weight: 400;
+      line-height: 100%;
+      color: #0f0e08;
+      text-align: center;
+    }
+
+    @media screen and (min-width: 480px) {
+      height: 300px;
+    }
+
+    @media screen and (min-width: 600px) {
+      height: 350px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      height: 400px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      height: 550px;
+      background-position: bottom;
+    }
+  }
+}

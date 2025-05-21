@@ -1,0 +1,100 @@
+.hero {
+  @extend %flex-column;
+
+  padding-bottom: 35px;
+
+  &__bg {
+
+    @extend %background-cover;
+
+    z-index: 1;
+    width: 100vw;
+    height: 60vh;
+    background-image: url('../images/banner/banner-bg-mobile.avif'),
+      url('../images/banner/banner-bg-mobile.webp'),
+      url('../images/banner/banner-bg-mobile.jpg');
+
+    @include on-tablet {
+      height: 500px;
+      background-image: url('../images/banner/banner-bg.avif'),
+        url('../images/banner/banner-bg.webp'),
+        url('../images/banner/banner-bg.jpg');
+    }
+
+    @include on-desktop {
+      height: 60vh;
+    }
+  }
+
+  &__logo {
+    @extend %flex-center;
+
+    padding-top: 9px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      padding-left: 90px;
+    }
+
+    @include on-desktop {
+      padding-left: 60px;
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    .container {
+      @extend %flex-column;
+
+      align-items: center;
+
+      @include on-tablet {
+        align-items: flex-end;
+      }
+    }
+
+    @include on-tablet {
+      transform: translate(100%);
+      transition: transform ($transition-duration * 2) ease-out;
+    }
+  }
+
+  &__title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    font-family: $primary-font;
+    font-size: clamp(45px, 5.4vw, 72px);
+    font-weight: 700;
+    line-height: 100%;
+    color: $black;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      padding-top: 0;
+      padding-bottom: 38px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 89px;
+    }
+  }
+
+  @include on-tablet {
+    & {
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+
+    &__bg {
+      width: 50%;
+    }
+
+    &__content {
+      width: 50%;
+      padding-bottom: 20px;
+      text-align: end;
+    }
+  }
+}

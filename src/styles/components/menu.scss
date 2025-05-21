@@ -1,0 +1,189 @@
+.menu {
+  $line-height: 140.62%;
+
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  transform: translateY(-100%);
+
+  overflow-y: auto;
+
+  width: 100%;
+
+  font-size: $font-size-md;
+  font-style: normal;
+  color: $white;
+
+  transition: all $transition-duration;
+
+  &__wrapper {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    background-color: $primary-color;
+  }
+
+  &__wrapper-content {
+    @extend %flex-column;
+
+    position: relative;
+    justify-content: space-between;
+
+    @media screen and (min-width: 880px) {
+      flex-direction: row;
+      gap: 5%;
+    }
+
+    @include on-desktop {
+      gap: 10%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    @include hover(background, $active-color);
+  }
+
+  &__close-img {
+    display: block;
+    width: 35px;
+    height: 35px;
+  }
+
+  &:target {
+    pointer-events: all;
+    transform: translateY(0);
+    transition: all $transition-duration;
+  }
+
+  &__content {
+    @extend %flex-end;
+
+    gap: 25px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 400px) {
+      justify-content: center;
+    }
+
+    @media screen and (min-width: 880px) {
+      width: 100%;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 32px;
+
+    @media screen and (min-width: 400px) {
+      column-gap: 70px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    list-style: none;
+  }
+
+  &__link {
+    padding: 10px;
+    border-radius: 20px;
+
+    font-family: $secondary-font;
+    font-weight: 500;
+    line-height: 100%;
+    color: inherit;
+    text-decoration: none;
+
+    @include hover(background, $active-color);
+  }
+
+  &__schedule {
+    @extend %flex-column;
+
+    padding-top: 24px;
+    span {
+      font-family: inherit;
+      font-weight: 700;
+    }
+
+    @media screen and (min-width: 400px) {
+      text-align: center;
+    }
+
+    @media screen and (min-width: 880px) {
+      width: 100%;
+      padding-top: 0;
+      text-align: left;
+    }
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    background-color: $white;
+  }
+
+  &__schedule-title {
+    margin-bottom: 20px;
+
+    font-family: $secondary-font;
+    font-size: $font-size-sm;
+    font-weight: 400;
+    line-height: $line-height;
+  }
+
+  &__schedule-content {
+    @extend %flex-column;
+
+    justify-content: space-between;
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__schedule-days {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__schedule-item {
+    padding-bottom: 1px;
+
+    font-family: $secondary-font;
+    font-size: $font-size-sm;
+    font-weight: 400;
+    line-height: $line-height;
+  }
+
+  &__schedule-text {
+    font-family: $secondary-font;
+    font-size: $font-size-sm;
+    font-weight: 400;
+    line-height: $line-height;
+
+    @media screen and (min-width: 880px) {
+      max-width: 175px;
+      margin-top: 0;
+    }
+  }
+}
